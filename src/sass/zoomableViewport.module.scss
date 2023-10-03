@@ -1,0 +1,68 @@
+.box {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.scrollButton {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  &:hover {
+    background-color: #6c9fff;
+    color: #fff;
+  }
+}
+.locationButton {
+  font-size: 20px;
+}
+.chip__zoom {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  &:hover,
+  &:focus {
+    background-color: #6c9fff;
+    color: #fff;
+  }
+}
+.list__zoom {
+  cursor: pointer;
+  position: absolute;
+  top: 65px;
+  right: 60px;
+  border-radius: 10px;
+
+  background-color: rgb(248, 241, 232);
+  list-style-type: none;
+}
+.list__item__zoom {
+  padding: 5px 20px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #6c9fff;
+    color: #fff;
+  }
+}
+.button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  &:hover {
+    background-color: #6c9fff;
+    color: #fff;
+  }
+}

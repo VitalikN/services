@@ -1,8 +1,8 @@
 import React from "react";
 import Tree from "react-d3-tree";
 import styles from "../sass/dynamicTree.module.scss";
-import { HiOutlinePlusSm } from "react-icons/hi";
-
+import { HiOutlinePlusSm, HiOutlineCheck } from "react-icons/hi";
+import { MdCreate, MdClose } from "react-icons/md";
 import { DataType } from "./DomTree";
 
 type CustomNodeProps = {
@@ -64,9 +64,30 @@ const CustomNode: React.FC<CustomNodeProps> = ({
     return text.slice(0, maxLength - 3) + "...";
   };
 
+  const getNodeClassNames = () => {
+    let classes = styles.box__tree;
+    if (nodeData.id === rootNodeId) {
+      classes += " " + styles.rootNode;
+    } else if (nodeData.depth === 1) {
+      classes += " " + styles.firstRow;
+    } else if (nodeData.depth === 2) {
+      classes += " " + styles.secondRow;
+    }
+    return classes;
+  };
+
+  let nodeClass = "";
+  if (nodeData.id === rootNodeId) {
+    nodeClass = styles.rootNode;
+  } else if (nodeData.depth === 1) {
+    nodeClass = styles.firstRow;
+  } else if (nodeData.depth === 2) {
+    nodeClass = styles.secondRow;
+  }
+
   return (
     <g>
-      <rect x="-50" y="-15" className={styles.box__tree} />
+      <rect x="-50" y="-15" className={getNodeClassNames()} />
       {isCurrentNodeEditing ? (
         <foreignObject x="-40" y="-10" width="150" height="30">
           <input
@@ -88,7 +109,7 @@ const CustomNode: React.FC<CustomNodeProps> = ({
         <text
           x="-40"
           y="0"
-          className={styles.box__tree__text}
+          className={`${styles.box__tree__text} ${nodeClass}`}
           dy=".35em"
           onClick={() => setEditingNode(nodeData)}
         >
@@ -99,10 +120,16 @@ const CustomNode: React.FC<CustomNodeProps> = ({
       {isCurrentNodeEditing && (
         <>
           <foreignObject x="80" y="-10" width="100" height="30">
-            <div>
-              <button onClick={handleCancelClick}>❌</button>
+            <div className={styles.box__tree__btn}>
+              <MdClose
+                className={`${styles.box__btn__check__close} ${styles.box__btn}`}
+                onClick={handleCancelClick}
+              />
 
-              <button onClick={handleConfirmClick}>✅</button>
+              <HiOutlineCheck
+                className={`${styles.box__btn__check} ${styles.box__btn}`}
+                onClick={handleConfirmClick}
+              />
             </div>
           </foreignObject>
         </>
@@ -110,16 +137,21 @@ const CustomNode: React.FC<CustomNodeProps> = ({
       {!isCurrentNodeEditing && (
         <>
           <foreignObject x="80" y="-10" width="150" height="30">
-            <div>
-              {/* <button> */}
+            <div className={styles.box__tree__btn}>
               <HiOutlinePlusSm
+                className={styles.box__btn}
                 onClick={() => onAddChild(nodeData)}
                 disabled={isEditing}
               />
-              {/* </button> */}
-              <button onClick={() => setEditingNode(nodeData)}>🖉</button>
+              <MdCreate
+                className={styles.box__btn}
+                onClick={() => setEditingNode(nodeData)}
+              />
               {nodeData.id !== rootNodeId && (
-                <button onClick={() => onRemoveNode(nodeData)}>🗑️</button>
+                <MdClose
+                  className={`${styles.box__btn__close} ${styles.box__btn}`}
+                  onClick={() => onRemoveNode(nodeData)}
+                />
               )}
             </div>
           </foreignObject>

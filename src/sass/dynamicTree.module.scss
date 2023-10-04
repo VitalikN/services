@@ -2,18 +2,37 @@
   position: relative;
   width: 120px;
   height: 30px;
-  font-weight: normal;
+
+  stroke-width: 0.5px;
+  font-weight: lighter;
+
   fill: rgb(248, 241, 232);
 }
+
+.rootNode {
+  fill: rgb(235, 230, 230);
+}
+
+.firstRow {
+  fill: #ffac80;
+  stroke: #fff;
+}
+
+.secondRow {
+  fill: deepskyblue;
+  stroke: #fff;
+}
+
 .box__tree__text {
-  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
   font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-weight: 300;
+  letter-spacing: 0.3px;
 }
-.box__tree__plus {
-  cursor: pointer;
-  font-size: 30px;
-  background: red;
-}
+
 .inputTrim {
   font-weight: normal;
   background: none;
@@ -40,4 +59,30 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.box__tree__btn {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.box__btn {
+  cursor: pointer;
+  padding: 2px;
+  background-color: rgb(224, 220, 220);
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+
+  &:hover {
+    background-color: #6c9fff;
+  }
+}
+.box__btn__close {
+  background-color: red;
+}
+.box__btn__check__close {
+  background: rgba(226, 226, 2, 0.837);
+}
+.box__btn__check {
+  background: rgb(1, 163, 1);
 }

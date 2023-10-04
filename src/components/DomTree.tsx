@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HiOutlinePlusSm } from "react-icons/hi";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,6 +10,7 @@ export type DataType = {
   name: string;
   isEditing?: boolean;
   children?: DataType[];
+  depth: number;
 };
 
 const DomTree: React.FC = () => {
@@ -18,6 +18,7 @@ const DomTree: React.FC = () => {
     id: uuidv4(),
     name: "Category",
     children: [],
+    depth: 0,
   });
 
   const [editingNode, setEditingNode] = useState<DataType | null>(null);
@@ -80,7 +81,13 @@ const DomTree: React.FC = () => {
       return;
     }
 
-    const newNode = { id: uuidv4(), name: "", children: [], isEditing: true };
+    const newNode = {
+      id: uuidv4(),
+      name: "",
+      children: [],
+      isEditing: true,
+      depth: node.depth + 1,
+    };
 
     const addNodeRecursive = (currentNode: DataType, targetNode: DataType) => {
       if (currentNode.id === targetNode.id) {

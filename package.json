@@ -11,14 +11,17 @@
   "dependencies": {
     "next": "13.5.4",
     "react": "^18",
+    "react-d3-tree": "^3.6.1",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
-    "sass": "^1.68.0"
+    "sass": "^1.68.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.4",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "typescript": "^5"

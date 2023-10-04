@@ -1,0 +1,43 @@
+.box__tree {
+  position: relative;
+  width: 120px;
+  height: 30px;
+  font-weight: normal;
+  fill: rgb(248, 241, 232);
+}
+.box__tree__text {
+  font-size: 18px;
+  font-weight: normal;
+}
+.box__tree__plus {
+  cursor: pointer;
+  font-size: 30px;
+  background: red;
+}
+.inputTrim {
+  font-weight: normal;
+  background: none;
+  border: none;
+  width: 100px;
+  height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+.box__tree__text {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

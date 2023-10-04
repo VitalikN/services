@@ -3,4 +3,12 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  padding-top: 83px;
+}
+.container {
+  width: 100%;
+  height: calc(100vh - 83px);
+}
+.handle {
+  cursor: move;
 }
